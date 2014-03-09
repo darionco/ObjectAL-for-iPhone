@@ -384,7 +384,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(OALAudioSession);
     {
         return self.ipodPlaying;
     }
+#if defined(ANDROID)
+    return NO; // TODO: FIX ME!
+#else
     return ((AVAudioSession*)[AVAudioSession sharedInstance]).otherAudioPlaying;
+#endif
+    
 }
 
 #pragma clang diagnostic pop // "-Wdeprecated-declarations"

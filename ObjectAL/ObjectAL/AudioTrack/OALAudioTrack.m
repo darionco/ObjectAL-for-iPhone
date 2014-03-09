@@ -614,7 +614,7 @@
 			[[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:[NSNotification notificationWithName:OALAudioTrackStoppedPlayingNotification object:self] waitUntilDone:NO];
 		}
 		
-		NSError* error;
+		NSError* error = nil;
 		player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
 		if(nil != error)
 		{
